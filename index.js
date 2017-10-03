@@ -4,7 +4,8 @@ module.exports = (robot, _, Settings = require('./lib/settings')) => {
   async function receive (context) {
     const payload = context.payload
     const defaultBranch = payload.ref === 'refs/heads/' + payload.repository.default_branch
-
+    console.info("info test")
+    console.log("log test")
     const settingsModified = payload.commits.find(commit => {
       return commit.added.includes(Settings.FILE_NAME) ||
         commit.modified.includes(Settings.FILE_NAME)
