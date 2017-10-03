@@ -10,7 +10,7 @@ module.exports = (robot, _, Settings = require('./lib/settings')) => {
       return commit.added.includes(Settings.FILE_NAME) ||
         commit.modified.includes(Settings.FILE_NAME)
     })
-
+console.log("defaultBranch: " + defaultBranch + " settingsModified: " + settingsModified)
     if (defaultBranch && settingsModified) {
       return Settings.sync(context.github, context.repo())
     }
